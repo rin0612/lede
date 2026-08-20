@@ -307,7 +307,7 @@ define Device/hinlink_opc-h29k
   SOC := rk3528
   UBOOT_DEVICE_NAME := generic-rk3528
   IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-aic8800-sdio kmod-fb-tft-st7789v wpad-openssl -urngd
+  DEVICE_PACKAGES := kmod-aic8800s kmod-fb-tft-st7789v wpad-openssl -urngd
 endef
 TARGET_DEVICES += hinlink_opc-h29k
 
@@ -339,7 +339,7 @@ define Device/hinlink_opc-ht2
   SOC := rk3528
   UBOOT_DEVICE_NAME := generic-rk3528
   IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-aic8800-sdio wpad-openssl -urngd
+  DEVICE_PACKAGES := kmod-aic8800s wpad-openssl -urngd
 endef
 TARGET_DEVICES += hinlink_opc-ht2
 
@@ -430,7 +430,7 @@ define Device/radxa_rock-3c
   SOC := rk3566
   UBOOT_DEVICE_NAME := rock-3c-rk3566
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-aic8800-sdio wpad-openssl
+  DEVICE_PACKAGES := kmod-aic8800s wpad-openssl
 endef
 TARGET_DEVICES += radxa_rock-3c
 
@@ -597,7 +597,7 @@ define Device/widora_mangopi-m28
   SOC := rk3528
   UBOOT_DEVICE_NAME := generic-rk3528
   IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-aic8800-sdio wpad-openssl -urngd
+  DEVICE_PACKAGES := kmod-aic8800s wpad-openssl -urngd
 endef
 
 define Device/widora_mangopi-m28c
