@@ -7,11 +7,11 @@
 -int aicwf_dbg_level_bsp = LOGERROR|LOGINFO|LOGDEBUG|LOGTRACE;
 +int aicwf_dbg_level_bsp = LOGDATA;
  
- struct semaphore aicbsp_probe_semaphore;
+ static struct platform_device *aicbsp_pdev;
  
 --- a/src/SDIO/driver_fw/driver/aic8800/aic8800_fdrv/rwnx_main.c
 +++ b/src/SDIO/driver_fw/driver/aic8800/aic8800_fdrv/rwnx_main.c
-@@ -510,7 +510,7 @@ static const int rwnx_hwq2uapsd[NL80211_
+@@ -503,7 +503,7 @@ static const int rwnx_hwq2uapsd[NL80211_
  
  
  extern uint8_t scanning;
@@ -20,14 +20,13 @@
  module_param(aicwf_dbg_level, int, 0660);
  int testmode = 0;
  char aic_fw_path[200];
---- a/src/SDIO/driver_fw/driver/aic8800/aic8800_fdrv/rwnx_platform.c
-+++ b/src/SDIO/driver_fw/driver/aic8800/aic8800_fdrv/rwnx_platform.c
-@@ -792,7 +792,7 @@ s8_l get_txpwr_max(s8_l power)
- 	    }
+--- a/src/SDIO/driver_fw/driver/aic8800/aic8800_fdrv/rwnx_tx.c
++++ b/src/SDIO/driver_fw/driver/aic8800/aic8800_fdrv/rwnx_tx.c
+@@ -169,7 +169,6 @@ void rwnx_ps_bh_traffic_req(struct rwnx_
+ 	//         sta->mac_addr))
+ 	//    return;
+ 	if (!sta->ps.active) {
+-	printk("sta %pM is not in Power Save mode", sta->mac_addr);
+ 		return;
  	}
- 
--	printk("%s:txpwr_max:%d \r\n",__func__,power);
-+	//printk("%s:txpwr_max:%d \r\n",__func__,power);
- 	return power;
- }
- 
+ #ifdef CREATE_TRACE_POINTS
